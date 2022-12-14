@@ -1,0 +1,39 @@
+<div *ngIf="!pais;else divPais" class="alert alert-info">
+  Espere por favor...
+</div>
+
+
+<ng-template #divPais>
+  <div class="row">
+    <div class="col-12">
+      <h1>País: <small>{{pais.name.official}}</small></h1>
+    </div>
+    <div class="row">
+      <div class="col-4">
+        <h3>Bandera</h3>
+        <img [src]="pais.flags.svg" [alt]="pais.name.common" class="img-thumbnail">
+      </div>
+      <div class="col">
+        <h3>Información</h3>
+        <ul class="list-group">
+          <li class="list-group-item"><strong> Poblacion: </strong>{{pais.population | number}}</li>
+          <li class="list-group-item"><strong> Capital: </strong>{{pais.capital}}</li>
+          <li class="list-group-item"><strong> AlphaCode: </strong>{{pais.cca2}}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <h3 class="mt-5">Traducciones</h3>
+  <div class="row">
+    <div class="col">
+      <span class="badge bg-primary me-3" >{{pais.translations['ara'].official}}</span>
+      <span class="badge bg-primary me-3" >{{pais.translations['bre'].official}}</span>
+      <span class="badge bg-primary me-3" >{{pais.translations['fra'].official}}</span>
+      <span class="badge bg-primary me-3" >{{pais.translations['jpn'].official}}</span>
+      <span class="badge bg-primary me-3" >{{pais.translations['spa'].official}}</span>
+      <span class="badge bg-primary me-3" >{{pais.translations['kor'].official}}</span>
+    </div>
+  </div>
+
+
+</ng-template>
